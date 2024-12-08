@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import {getStarships} from './assets/services/starshipServices'
+import StarshipCard from './components/StarshipCard'
+import StarshipSearch from './components/StarshipSearch'
 
 // src/App.jsx
 
@@ -22,8 +24,11 @@ const App = () => {
    
   
   return (
-   
-    <div className="fullShipListDiv">
+   <>
+   {/* <StarshipSearch/> */}
+   <StarshipSearch starships={starships}/>
+   <StarshipCard starships={starships}/>
+    {/* <div className="fullShipListDiv">
         {starships.map((ship, index) => { 
           return <div className="shipCard" key={index}>
             <h2 id="shipName">{ship.name}</h2>
@@ -32,7 +37,8 @@ const App = () => {
             <p>Model: {ship.model}</p>
             </div>;
         })}
-    </div>
+    </div> */}
+    </>
   )
 }
 
