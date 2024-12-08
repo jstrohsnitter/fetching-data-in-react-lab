@@ -9,24 +9,37 @@ import StarshipSearch from './components/StarshipSearch'
 const App = () => {
 
   const [starships, setStarships] = useState([])
-  console.log(starships)
+  //console.log(starships)
+
+   const [shipSearchResults, setShipSearchResults] = useState([])
+  console.log(shipSearchResults)
+   
+   
+
   useEffect(( ) => {
     const fetchStarships = async () => {
       let response = await getStarships()
       //let allResponse = [response[0].results, response[1].results]
-      console.log(response)
+      //console.log(response)
      const allResponse = response.flatMap(ships => ships.results) //got this flat map from a chat gpt prompt within a prompt "how to access an object within an array within an object within an array in javascript" then "how would i make an array of all item objects" 
-     console.log(allResponse)
+     //console.log(allResponse)
       setStarships(allResponse)
     } 
     fetchStarships()
   },[])
+
+     const addToList = (result) => {
+      const shipSearch = result
+      setShipSearchResults([shipSearch])
+     }
+   
+
    
   
   return (
    <>
    {/* <StarshipSearch/> */}
-   <StarshipSearch starships={starships}/>
+   <StarshipSearch starships={starships} addToList={addToList}/>
    <StarshipCard starships={starships}/>
     {/* <div className="fullShipListDiv">
         {starships.map((ship, index) => { 

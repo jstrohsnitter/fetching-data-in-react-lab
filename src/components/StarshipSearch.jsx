@@ -3,19 +3,20 @@ import { useState } from 'react'
 const StarshipSearch = (props) => {
 
     const [term, setTerm] = useState('')
-    console.log(term)
+    //console.log(term)
 
-    const [result, setResult] = useState([])
-    console.log(result)
+    //const [result, setResult] = useState([])
+    //console.log(result)
     
     const handleInputChange = (event) => {
         setTerm(event.target.value)
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const searchResult = props.starships.filter((ships) => ships.name === `${term}` )
-        setResult(searchResult)
+        const searchResult = await props.starships.filter((ships) => ships.name === `${term}` )
+        //setResult(searchResult)
+        props.addToList([...searchResult])
     }
 
     return  (   
