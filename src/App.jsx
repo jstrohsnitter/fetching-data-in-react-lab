@@ -10,7 +10,7 @@ import StarshipList from './components/StarshipList'
 const App = () => {
 
   const [starships, setStarships] = useState([])
-  //console.log(starships)
+  console.log(starships)
 
    const [shipSearchResults, setShipSearchResults] = useState([])
   //console.log(shipSearchResults)

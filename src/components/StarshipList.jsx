@@ -8,6 +8,14 @@ const StarshipList = (props) => {
     const search = props.shipSearchResults
     //console.log(search) 
 
+    const countItems = () => {
+        if (search != '') {
+            return <p>Number of Results: {search.length}</p>
+        } else {
+        return <p>Number of Results: {wholeList.length}</p>
+        }
+    }
+
     const RenderPage = () => {
         if (search != '' ) {
            return search.map((ship, index) => {
@@ -26,6 +34,7 @@ const StarshipList = (props) => {
     return ( 
         <>
         <h3>Starships</h3>
+        <div>{countItems()}</div>
         <div className="fullShipListDiv">
             {RenderPage()}
         </div>
