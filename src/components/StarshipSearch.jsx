@@ -12,11 +12,11 @@ const StarshipSearch = (props) => {
         setTerm(event.target.value)
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const searchResult = await props.starships.filter((ships) => ships.name === `${term}` )
+        const searchResult = props.starships.filter((ships) => ships.name === `${term}` )
         //setResult(searchResult)
-        props.addToList([...searchResult])
+        props.addToList(...searchResult)
     }
 
     return  (   

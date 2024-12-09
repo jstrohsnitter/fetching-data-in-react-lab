@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import {getStarships} from './assets/services/starshipServices'
-import StarshipCard from './components/StarshipCard'
+//import StarshipCard from './components/StarshipCard'
 import StarshipSearch from './components/StarshipSearch'
+import StarshipList from './components/StarshipList'
 
 // src/App.jsx
 
@@ -12,7 +13,7 @@ const App = () => {
   //console.log(starships)
 
    const [shipSearchResults, setShipSearchResults] = useState([])
-  console.log(shipSearchResults)
+  //console.log(shipSearchResults)
    
    
 
@@ -22,7 +23,7 @@ const App = () => {
       //let allResponse = [response[0].results, response[1].results]
       //console.log(response)
      const allResponse = response.flatMap(ships => ships.results) //got this flat map from a chat gpt prompt within a prompt "how to access an object within an array within an object within an array in javascript" then "how would i make an array of all item objects" 
-     //console.log(allResponse)
+    // console.log(allResponse)
       setStarships(allResponse)
     } 
     fetchStarships()
@@ -39,8 +40,9 @@ const App = () => {
   return (
    <>
    {/* <StarshipSearch/> */}
+   <h1>Star Wars API</h1>
    <StarshipSearch starships={starships} addToList={addToList}/>
-   <StarshipCard starships={starships}/>
+   <StarshipList starships={starships} shipSearchResults={shipSearchResults}/>
     {/* <div className="fullShipListDiv">
         {starships.map((ship, index) => { 
           return <div className="shipCard" key={index}>
