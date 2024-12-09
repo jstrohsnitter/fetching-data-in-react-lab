@@ -17,7 +17,7 @@ const App = () => {
    
    
 
-  useEffect(( ) => {
+  useEffect(( ) => { //ian helped me setting this up w my starship services
     const fetchStarships = async () => {
       let response = await getStarships()
       //let allResponse = [response[0].results, response[1].results]

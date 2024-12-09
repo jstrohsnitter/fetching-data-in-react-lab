@@ -12,7 +12,7 @@ const StarshipSearch = (props) => {
         setTerm(event.target.value)
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event) => { //got help from Glenn on lines 18 and 19. was having trouble with the timing of everything, and with some nested objects. 
         event.preventDefault();
         const searchResult = props.starships.filter((ships) => ships.name === `${term}` )
         //setResult(searchResult)
